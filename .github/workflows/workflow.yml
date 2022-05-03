@@ -35,12 +35,6 @@ jobs:
         with:
           ocaml-compiler: ${{ matrix.ocaml-compiler }}
           dune-cache: ${{ matrix.os != 'macos-latest' }}
-          opam-depext: false
-          opam-pin: false
-
-      - name: Install OpenSSL on MacOS
-        run: brew install openssl@3
-        if: ${{ matrix.os == 'macos-latest' }}
 
       - run: opam install . --deps-only
 
